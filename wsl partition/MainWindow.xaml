@@ -1,0 +1,29 @@
+﻿<Window x:Class="wsl_partition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wsl_partition"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="170,98,170,98" x:Name="list">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="disk number" DisplayMemberBinding="{Binding DiskNumber}"/>
+                    <GridViewColumn Header="partition number" DisplayMemberBinding="{Binding PartitionNumber}"/>
+                    <GridViewColumn Header="file system" DisplayMemberBinding="{Binding FileSystem}"/>
+                    <GridViewColumn Header="partition size" DisplayMemberBinding="{Binding PartitionSize}"/>
+                    <GridViewColumn Header="Mounted" DisplayMemberBinding="{Binding Mounted}"/>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="mount" Click="Mount_Click"/>
+                    <MenuItem Header="unmount" Click="Unmount_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+
+    </Grid>
+</Window>
